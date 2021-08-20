@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--I have added Bootstrap Javascript and CSS-->
+    <link rel="stylesheet" href="/stylesforum.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!--Navbar with Bootstrap Framework and some custom styling-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-info" id="navbarcsone">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#" style="font-size: xx-large;">Website Name</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#"
+                            style="font-size:larger; font-family:monospace;">NavLink</a>
+                    </li>
+                </ul>
+                <form class="d-flex">
+                    <h3 style="font-family:sans-serif;">welcome to ---</h3>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <!--Heading after NavBar-->
+    <div class="heading1">
+        <center>
+            <span>Ask For Help! Community Forum</span>
+        </center>
+    </div>
+    <div class="wrapper">
+        <div class="container">
+
+            <div class="main">
+                <center>
+                    <h2>Ask Your Questions Here</h2>
+                    <form method="GET" action="/handlefform1">
+                        <div class="mb-3">
+                            <input type="text" class="form-control" placeholder="Username" aria-label="Username"
+                                aria-describedby="addon-wrapping" name="name">
+                            <br>
+                            <input type="text" class="form-control" placeholder="Programming Language"
+                                aria-label="Programming Language" aria-describedby="addon-wrapping" name="proglang">
+                            <label for="exampleFormControlTextarea1" class="form-label">Question</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                                name="question"></textarea>
+
+                            <hr>
+
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+
+            </div>
+            <div class="mainbody">
+                <hr>
+                <br>
+                <h1 style="font-family:monospace;">Threads</h1>
+                <br>
+                </center>
+                
+                <%for(i=0; i<n.length; i++) { %>
+
+                <div class="my-3 border border-dark py-3">
+                    <div class="d-flex">
+                        <div class="flex-shrink-0">
+                            <img src="user.png" width="128px" height="128px" class="mr-3">
+                        </div>
+                        <div class="flex-grow-1 ms-3">
+                            <h4>
+                                <%=n[i].question%>
+                            </h4>
+                            <h6 class="fw-bold">BY <%= n[i].name%> </h6>
+                            <h6 class="fw-bold">Programming Language: <%= n[i].proglang%> </h6>
+                            <a href="/answer?id=<%= n[i]._id%>" class="btn btn-warning">Answers</a>
+                        </div>
+                    </div>
+                </div>
+                <% } %>
+            
+                
+
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>
